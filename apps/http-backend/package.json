@@ -16,7 +16,7 @@
     "start": "npm run generate && node dist/index.js",
     "build": "tsc -b"
   },
-  "keywords": [],
+  
   "author": "",
   "license": "ISC",
   "dependencies": {
