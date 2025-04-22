@@ -30,15 +30,5 @@ function IsLogged() {
     </div>
   )
 }
-function SideBar({setSidebar}:{setSidebar:(value:boolean)=>void}){
-return(
-  <div className="">
-    <div>
-      <button>Log Out</button>
-    </div>
-  </div>
-)
-
-}
 
 export default IsLogged

@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from "next/navigation"
 import { useRef } from "react"
-function page() {
+function Page() {
     const router = useRouter()
     const slugRef = useRef<HTMLInputElement>(null);
   return (
@@ -18,4 +18,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

@@ -44,7 +44,7 @@ export default function SignIn(){
         </div>
         <div>
                 <Link href={"/signin"}>
-                 Already have a account? sign in</Link>
+                 Already have an account? Login</Link>
             </div>
 
         

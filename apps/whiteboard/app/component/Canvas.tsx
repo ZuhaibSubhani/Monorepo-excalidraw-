@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { initDraw } from "../draw";
-import { IconButton } from "./IconButton";
+
 import { Circle, Paperclip, Pencil, Square, Type } from "lucide-react";
 
 export function Canvas({ roomId, socket }: { roomId: string; socket: WebSocket }) {
@@ -8,7 +8,7 @@ export function Canvas({ roomId, socket }: { roomId: string; socket: WebSocket }
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    //@ts-ignore
+    
     window.tools = tools;
   }, [tools]);
 
@@ -17,7 +17,7 @@ export function Canvas({ roomId, socket }: { roomId: string; socket: WebSocket }
       const canvas = canvasRef.current;
       initDraw(canvas, roomId, socket);
     }
-  }, [canvasRef]);
+  }, [canvasRef,roomId, socket]);
 
   return (
     <div className="relative w-full h-screen">

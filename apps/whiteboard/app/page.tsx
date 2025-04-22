@@ -2,8 +2,7 @@
 import Link from "next/link";
 import IsLogged from "./component/IsLogged";
 import Animation from "./component/Animation";
-import { IconButton } from "./component/IconButton";
-import X from "./icons/X";
+
 function App() {
   return (
 
@@ -42,7 +41,7 @@ function App() {
         
           &copy; 2025 pin-board. All rights reserved.
         </div>
-     
+      
       </footer>
     </div>
     </div>

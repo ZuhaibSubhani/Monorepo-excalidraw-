@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
+
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { HTTP_BACKEND } from "@/config";
-import { SidebarIcon } from "lucide-react";
+
 function JoinRoom() {
   const [isOpen, setIsOpen] = useState(false);
   const [create, setCreate]=useState(false)

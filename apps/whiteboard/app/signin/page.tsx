@@ -46,7 +46,7 @@ export default function SignIn(){
 
         </div>
         <div className="flex justify-center">
-                <Link href={"/signup"}>dont have a account? signup</Link>
+                <Link href={"/signup"}>dont have an account? Signup</Link>
             </div>
         
     </div></div>

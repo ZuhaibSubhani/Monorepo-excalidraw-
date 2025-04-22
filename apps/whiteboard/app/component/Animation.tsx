@@ -3,7 +3,7 @@ import { useRef, useEffect } from "react";
 
 function Animation() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
-    let raf: number;
+    const raf = useRef<number|null>(null);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -29,6 +29,7 @@ function Animation() {
         };
 
         function draw() {
+            if (!ctx || !canvas) return; 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ball.draw();
             ball.x += ball.vx;
@@ -41,14 +42,14 @@ function Animation() {
                 ball.vx = -ball.vx;
             }
 
-            raf = window.requestAnimationFrame(draw);
+            raf.current = window.requestAnimationFrame(draw);
         }
 
         // Start animation immediately
-        raf = window.requestAnimationFrame(draw);
+        raf.current = window.requestAnimationFrame(draw);
 
         // Cleanup on unmount
-        return () => window.cancelAnimationFrame(raf);
+        return () => window.cancelAnimationFrame(raf.current as number);
     }, []);
 
     return (

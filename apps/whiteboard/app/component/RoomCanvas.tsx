@@ -38,7 +38,7 @@ export default function RoomCanvas({ roomId }: { roomId: string }) {
     return () => {
       ws.close();
     };
-  }, [token]); // Re-run when token is updated
+  }, [token,roomId]); // Re-run when token is updated
 
   if (!socket) {
     return <div>Connecting...</div>;

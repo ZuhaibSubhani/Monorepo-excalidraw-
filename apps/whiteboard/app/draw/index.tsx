@@ -1,5 +1,11 @@
 import axios from "axios";
 import { HTTP_BACKEND } from "@/config";
+declare global {
+    interface Window {
+      tools: string;
+    }
+  }
+  
 type Shape={
     type:'rect',
     x:number;
@@ -79,7 +85,7 @@ export async function initDraw(canvas:HTMLCanvasElement,roomId:string,socket:Web
         x=e.clientX;
         y=e.clientY;
         console.log(x)
-        //@ts-ignore
+        
         const selectedTool = window.tools;
 
         if (selectedTool === "pencil") {
@@ -94,13 +100,13 @@ export async function initDraw(canvas:HTMLCanvasElement,roomId:string,socket:Web
         const y1 = Math.min(y, e.clientY);
         const width = Math.abs(e.clientX - x);
         const height = Math.abs(e.clientY - y);
-        //@ts-ignore
+      
         const selectedTool=window.tools
         let shape:Shape | null=null
 
         if(selectedTool==='rect'){
               shape={
-            // @ts-ignore
+            
             type:'rect',
             x:x1,
             y:y1,
@@ -112,7 +118,7 @@ export async function initDraw(canvas:HTMLCanvasElement,roomId:string,socket:Web
         else if(selectedTool==='oval'){
             
             shape={
-           // @ts-ignore
+          
            type:'oval',
            radiusY:height/2,
            radiusX:width/2,
@@ -168,7 +174,7 @@ export async function initDraw(canvas:HTMLCanvasElement,roomId:string,socket:Web
             const height = Math.abs(e.clientY - y);
             clearCanvas(existingShape,canvas,ctx)
             ctx.strokeStyle="rgba(255,255,255)"
-            //@ts-ignore
+           
             
             if(selectedTool==='rect'){ 
                 ctx.strokeRect(x1,y1,width,height);
@@ -328,9 +334,9 @@ function drawWrappedText(ctx: CanvasRenderingContext2D, text: string, x: number,
     let yOffset = 0;
     
     for (let i = 0; i < words.length; i++) {
-        let testLine = line + words[i] + " ";
-        let metrics = ctx.measureText(testLine);
-        let testWidth = metrics.width;
+       const testLine = line + words[i] + " ";
+       const metrics = ctx.measureText(testLine);
+        const testWidth = metrics.width;
         
         if (testWidth > maxWidth && i > 0) {
             ctx.fillText(line, x, y + yOffset);
