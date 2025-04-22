@@ -36,9 +36,11 @@ app.post('/signin',async(req,res)=>{
       const user=await prismaClient.user.findFirst({where:{email,password}})
       if(!user){
          res.status(403).json({message:"not authorized"})
+         return
       }
       const token=jwt.sign({userId:user?.id},JWT_SECRET)
       res.json({token})
+      return
     } catch (error) {
       res.status(411).json({message:"exception error"})   
     }
